@@ -7,15 +7,21 @@ WY2022_ForecastPlot <- function()
   
   data = read.csv(filepath, header = TRUE, skip = 1)
   
+  n = nrow(data)-3
+  
   x = data$MonthsAway
   most = data$Most
-  min = data$Min
-  max = data$Max
+  min = data$Min[1:n]
+  max = data$Max[1:n]
  
   # Create Initial Plot - with Most Probable Forecast
-  plot(x, most, type = "l", xlim = rev(range(x)), col = "darkgreen", lwd = 2, 
-       lty = 2, xlab = "", ylab = "")
+  plot(x, most, type = "l", xlim = rev(range(x)), ylim = c(0,20), 
+       col = "forestgreen", lwd = 2, lty = 2, xlab = "", ylab = "")
   title(main = "Water Year 2022 - Lake Powell", 
         xlab = "Months Away from EOWY 2022", 
         ylab = "Unregulated Inflow Volume (MAF)")
+  
+  # Add Min/Max Prob Forecast points
+  points(x[1:n], min, col = "red", pch = "-", cex = 2.5)
+  points(x[1:n], max, col = "blue", pch = "-", cex = 2.5)
 }
