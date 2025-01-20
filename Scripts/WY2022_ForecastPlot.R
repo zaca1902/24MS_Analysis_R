@@ -7,7 +7,7 @@ WY2022_ForecastPlot <- function()
   
   data = read.csv(filepath, header = TRUE, skip = 1)
   
-  n = nrow(data)-3
+  n = nrow(data)-3    # Creates length for Min/Max to prevent data overlap
   
   x = data$MonthsAway
   most = data$Most
@@ -15,7 +15,10 @@ WY2022_ForecastPlot <- function()
   max = data$Max[1:n]
  
   # Create Initial Plot - with Most Probable Forecast
-  plot(x, most, type = "l", xlim = rev(range(x)), ylim = c(0,20), 
+  xlim = 24
+  ylim = 20
+  
+  plot(x, most, type = "l", xlim = rev(range(x)), ylim = c(0, ylim), 
        col = "forestgreen", lwd = 2, lty = 2, xlab = "", ylab = "", xaxt = "n",
        yaxt = "n")
   title(main = "Water Year 2022 - Lake Powell", 
@@ -40,10 +43,16 @@ WY2022_ForecastPlot <- function()
                                 pt.cex = c(2.5, NA, 2.5, NA)) 
   
   # Add Axis Labels
-  axis(1, at = seq(24, 0, by = -1), labels = seq(24, 0, by = -1))
-  axis(2, at = seq(0, 20, by = 2), labels = seq(0, 20, by = 2))
+  axis(1, at = seq(xlim, 0, by = -1), labels = seq(xlim, 0, by = -1))
+  axis(2, at = seq(0, ylim, by = 2), labels = seq(0, ylim, by = 2))
   
-  # Create Grid Lines
-  grid(nx = length(seq(24, 0, by = -2)), ny = length(seq(0, 20, by = 2)), 
-       col = "gray")
+  # Add Grid Lines - grid command malfunctioning
+  # grid(nx = length(seq(24, 0, by = -2)), ny = length(seq(0, 20, by = 2)), 
+  #      col = "gray")
+  for (i in 1:xlim)
+  {if(i %% 2 == 0){abline(v = i, col = "grey", lty = 3)}}
+  for (i in 1:ylim)
+  {if(i %% 2 == 0){abline(h = i, col = "grey", lty = 3)}}
+  
+  # 
 }
