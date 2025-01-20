@@ -18,7 +18,7 @@ WY2022_ForecastPlot <- function()
   xlim = 24
   ylim = 20
   
-  plot(x, most, type = "n", xlim = rev(range(x)), ylim = c(0, ylim), xlab = "", 
+  plot(x, most, type = "n", xlim = rev(c(0,xlim)), ylim = c(0, ylim), xlab = "", 
        ylab = "", xaxt = "n", yaxt = "n")
   title(main = "Water Year 2022 - Lake Powell", 
         xlab = "Months Away from EOWY 2022", 
@@ -27,7 +27,7 @@ WY2022_ForecastPlot <- function()
   # Add Grid Lines - grid command malfunctioning
   # grid(nx = length(seq(24, 0, by = -2)), ny = length(seq(0, 20, by = 2)), 
   #      col = "gray")
-  for (i in 1:xlim)
+  for (i in 0:xlim)
   {if(i %% 2 == 0){abline(v = i, col = "grey", lty = 3)}}
   for (i in 1:ylim)
   {if(i %% 2 == 0){abline(h = i, col = "grey", lty = 3)}}
@@ -52,10 +52,11 @@ WY2022_ForecastPlot <- function()
                                 pch = c("-", NA, "-", NA), 
                                 pt.cex = c(2.5, NA, 2.5, NA)) 
   
-  # Add Axis Labels
+  # Add Axis Labels (Numerical)
   axis(1, at = seq(xlim, 0, by = -1), labels = seq(xlim, 0, by = -1))
   axis(2, at = seq(0, ylim, by = 2), labels = seq(0, ylim, by = 2))
   
-
-  # 
+  # Add Axis Labels (Months on X-Axis)
+  monthlab = c(month.abb[10:12], month.abb, month.abb[1:10])
+  axis(1, at = seq(xlim, 0, by = -1), labels = monthlab, line = 0.8, tick = FALSE)
 }
