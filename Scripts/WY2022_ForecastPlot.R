@@ -39,4 +39,8 @@ WY2022_ForecastPlot <- function()
                                 pt.cex = c(2.5, NA, 2.5, NA)) 
   
   # Format Plot
+  axis(1, at = seq(24, 0, by = -1), labels = seq(24, 0, by = -1))
+  axis(2, at = seq(0, 20, by = 2), labels = seq(0, 20, by = 2))
+  grid(nx = length(seq(24, 0, by = -2)), ny = length(seq(0, 20, by = 2)), 
+       col = "gray")
 }
