@@ -24,4 +24,19 @@ WY2022_ForecastPlot <- function()
   # Add Min/Max Prob Forecast points
   points(x[1:n], min, col = "red", pch = "-", cex = 2.5)
   points(x[1:n], max, col = "blue", pch = "-", cex = 2.5)
+  
+  # Add actual accumulated unregulated inflow volume (maf)
+  auiv = 6.084
+  abline(h = auiv, col = "black", lwd = 2)
+  
+  # Add Legend
+  legend("topright", legend = c("Maximum Probable", "Most Probable", 
+                                "Minimum Probable", "Actual Value"), 
+                                col= c("blue","forestgreen","red","black"), 
+                                lwd = c(NA, 2, NA, 2), 
+                                lty = c(NA, 2, NA, 1),
+                                pch = c("-", NA, "-", NA), 
+                                pt.cex = c(2.5, NA, 2.5, NA)) 
+  
+  # Format Plot
 }
