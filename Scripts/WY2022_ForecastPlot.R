@@ -16,7 +16,8 @@ WY2022_ForecastPlot <- function()
  
   # Create Initial Plot - with Most Probable Forecast
   plot(x, most, type = "l", xlim = rev(range(x)), ylim = c(0,20), 
-       col = "forestgreen", lwd = 2, lty = 2, xlab = "", ylab = "")
+       col = "forestgreen", lwd = 2, lty = 2, xlab = "", ylab = "", xaxt = "n",
+       yaxt = "n")
   title(main = "Water Year 2022 - Lake Powell", 
         xlab = "Months Away from EOWY 2022", 
         ylab = "Unregulated Inflow Volume (MAF)")
@@ -38,9 +39,11 @@ WY2022_ForecastPlot <- function()
                                 pch = c("-", NA, "-", NA), 
                                 pt.cex = c(2.5, NA, 2.5, NA)) 
   
-  # Format Plot
+  # Add Axis Labels
   axis(1, at = seq(24, 0, by = -1), labels = seq(24, 0, by = -1))
   axis(2, at = seq(0, 20, by = 2), labels = seq(0, 20, by = 2))
+  
+  # Create Grid Lines
   grid(nx = length(seq(24, 0, by = -2)), ny = length(seq(0, 20, by = 2)), 
        col = "gray")
 }
