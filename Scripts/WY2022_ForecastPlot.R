@@ -12,6 +12,6 @@ WY2022_ForecastPlot <- function()
   min = data$Min
   max = data$Max
  
-  # Create Plot area
-   
+  # Create Plot Area
+  
 }
