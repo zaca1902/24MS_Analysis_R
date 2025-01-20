@@ -3,7 +3,7 @@ WY2022_ForecastPlot <- function()
   # Read and parse data
   filepath <- file.path("C:/Users/zaca1902.AD.001/OneDrive - UCB-O365",
     "CADSWES Research/24-MS and Historic Record",
-    "R Directory/Data/Inf_Fcast_WY2022.csv")
+    "24MS_Analysis_R/Data/Inf_Fcast_WY2022.csv")
   
   data = read.csv(filepath, header = TRUE, skip = 1)
   
@@ -13,5 +13,5 @@ WY2022_ForecastPlot <- function()
   max = data$Max
  
   # Create Plot Area
-  
+  plot(x, most, type = "l", xlim = rev(range(x)), col = "darkgreen", lwd = 2)
 }
