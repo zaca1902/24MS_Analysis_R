@@ -1,4 +1,4 @@
-WY_4castPlot <- function(data, yr, resname, auiv)
+WY_4castPlot <- function(filepath, yr, resname, auiv)
 {
   # The following code creates a plot of "hind casts" from the 24 Month Study
   # for the accumulated unregulated inflow volume (AUIV) at the end of a water 
@@ -7,7 +7,7 @@ WY_4castPlot <- function(data, yr, resname, auiv)
   # (https://qcnr.usu.edu/coloradoriver/files/news/White-Paper-7.pdf).
   
   # Inputs:
-  #   data: the file path that contains the 24 months of 24-MS data
+  #   filepath: the file path that contains the 24 months of 24-MS data
   #         for projecting the AUIV at the end of the water year of interest.
   #         Data column headers must match the parse section below.
   #   yr: the year of interest for the projections
@@ -36,7 +36,7 @@ WY_4castPlot <- function(data, yr, resname, auiv)
   
   plot(x, most, type = "n", xlim = rev(c(0,xlim)), ylim = c(0, ylim), xlab = "", 
        ylab = "", xaxt = "n", yaxt = "n", yaxs = "i")
-  title(main = paste("Water Year ", yr, "- Lake ", resname), 
+  title(main = paste("Water Year", yr, "- Lake", resname), 
         xlab = "", ylab = "Unregulated Inflow Volume (MAF)")
   
   # Add Grid Lines - grid command malfunctioning
