@@ -44,4 +44,32 @@ WY_4castPlot <- function(data, yr, resname, auiv)
   
   # Add actual accumulated unregulated inflow volume (maf)
   abline(h = auiv, col = "black", lwd = 2)
+  
+  # Add Most Prob Forecast line
+  lines(x, most, lwd = 2, lty = 2, col = "forestgreen")
+  
+  # Add Min/Max Prob Forecast points
+  points(x[1:n], min, col = "red", pch = "-", cex = 2.5)
+  points(x[1:n], max, col = "blue", pch = "-", cex = 2.5)
+  
+  # Add Legend
+  legend("topright", legend = c("Maximum Probable", "Most Probable", 
+                                "Minimum Probable", "Actual Value"), 
+         col= c("blue","forestgreen","red","black"), 
+         lwd = c(NA, 2, NA, 2), 
+         lty = c(NA, 2, NA, 1),
+         pch = c("-", NA, "-", NA), 
+         pt.cex = c(2.5, NA, 2.5, NA)) 
+  
+  # Add Axis Labels (Numerical)
+  axis(1, at = seq(xlim, 0, by = -1), labels = seq(xlim, 0, by = -1))
+  axis(2, at = seq(0, ylim, by = 2), labels = seq(0, ylim, by = 2))
+  
+  # Add Axis Labels (Months on X-Axis)
+  monthlab = c(month.abb[10:12], month.abb, month.abb[1:10])
+  axis(1, at = seq(xlim, 0, by = -1), labels = monthlab, line = 0.8, tick = FALSE)
+  
+  # Add Axis Lables (Years on X-Axis)
+  yearlab = c(yr, yr-1)
+  axis(1, at = c(21, 9), labels = yearlab, line = 1.6, tick = FALSE)
 }
