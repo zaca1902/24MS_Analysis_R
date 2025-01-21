@@ -7,8 +7,9 @@ WY_4castPlot <- function(data, yr, resname, auiv)
   # (https://qcnr.usu.edu/coloradoriver/files/news/White-Paper-7.pdf).
   
   # Inputs:
-  #   data: the file path/data file that contains the 24 months of 24-MS data
+  #   data: the file path that contains the 24 months of 24-MS data
   #         for projecting the AUIV at the end of the water year of interest.
+  #         Data column headers must match the parse section below.
   #   yr: the year of interest for the projections
   #   resname: the reservoir name of interest
   #   auiv: the actual value for the AUIV at the end of the WY of interest
@@ -17,6 +18,10 @@ WY_4castPlot <- function(data, yr, resname, auiv)
   
   # Created by: Zachary Carpenter
   # Created on: 1/21/2025
+  
+  # CODE: 
+  # Read and Parse data
+  data = read.csv(filepath, header = TRUE, skip = 1)
   
   n = nrow(data)-3    # Creates length for Min/Max to prevent data overlap
   
