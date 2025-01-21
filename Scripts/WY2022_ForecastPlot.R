@@ -19,10 +19,9 @@ WY2022_ForecastPlot <- function()
   ylim = 20
   
   plot(x, most, type = "n", xlim = rev(c(0,xlim)), ylim = c(0, ylim), xlab = "", 
-       ylab = "", xaxt = "n", yaxt = "n")
+       ylab = "", xaxt = "n", yaxt = "n", yaxs = "i")
   title(main = "Water Year 2022 - Lake Powell", 
-        xlab = "Months Away from EOWY 2022", 
-        ylab = "Unregulated Inflow Volume (MAF)")
+        xlab = "", ylab = "Unregulated Inflow Volume (MAF)")
   
   # Add Grid Lines - grid command malfunctioning
   # grid(nx = length(seq(24, 0, by = -2)), ny = length(seq(0, 20, by = 2)), 
@@ -59,4 +58,8 @@ WY2022_ForecastPlot <- function()
   # Add Axis Labels (Months on X-Axis)
   monthlab = c(month.abb[10:12], month.abb, month.abb[1:10])
   axis(1, at = seq(xlim, 0, by = -1), labels = monthlab, line = 0.8, tick = FALSE)
+  
+  # Add Axis Lables (Years on X-Axis)
+  yearlab = c("2021", "2022")
+  axis(1, at = c(21, 9), labels = yearlab, line = 1.6, tick = FALSE)
 }
