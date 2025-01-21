@@ -1,6 +1,6 @@
 WY2022_ForecastPlot <- function()
 {
-  # Read and parse data
+  # Read and parse dataset
   filepath <- file.path("C:/Users/zaca1902.AD.001/OneDrive - UCB-O365",
     "CADSWES Research/24-MS and Historic Record",
     "24MS_Analysis_R/Data/Inf_Fcast_WY2022.csv")
