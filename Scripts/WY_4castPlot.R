@@ -25,8 +25,8 @@ WY_4castPlot <- function(filepath, yr, resname, auiv)
   
   n = nrow(data)-3    # Creates length for Min/Max to prevent data overlap
   
-  x = data$MonthsAway
-  most = data$Most
+  x = data$MonthsAway[1:24]
+  most = data$Most[1:24]
   min = data$Min[1:n]
   max = data$Max[1:n]
   
