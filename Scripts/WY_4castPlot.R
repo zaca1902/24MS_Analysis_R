@@ -29,8 +29,7 @@ WY_4castPlot <- function(filepath, yr, resname)
   min = data$Min[1:n]
   max = data$Max[1:n]
   auiv = data$Most[length(data$Most)]
-  print(auiv)
-  
+
   # Create Initial Plot Area
   xlim = 24
   ylim = 20
