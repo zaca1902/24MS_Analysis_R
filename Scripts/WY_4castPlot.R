@@ -22,7 +22,7 @@ WY_4castPlot <- function(filepath, yr, resname)
   # Read and Parse data
   data = read.csv(filepath, header = TRUE, skip = 1)
   
-  n = nrow(data)-3    # Creates length for Min/Max to prevent data overlap
+  n = nrow(data)-4    # Creates length for Min/Max to prevent data overlap
   
   x = data$MonthsAway[1:24]
   most = data$Most[1:24]
