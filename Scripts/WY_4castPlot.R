@@ -1,4 +1,4 @@
-WY_4castPlot <- function(filepath, yr, resname, auiv)
+WY_4castPlot <- function(filepath, yr, resname)
 {
   # The following code creates a plot of "hind casts" from the 24 Month Study
   # for the accumulated unregulated inflow volume (AUIV) at the end of a water 
@@ -12,7 +12,6 @@ WY_4castPlot <- function(filepath, yr, resname, auiv)
   #         Data column headers must match the parse section below.
   #   yr: the year of interest for the projections
   #   resname: the reservoir name of interest
-  #   auiv: the actual value for the AUIV at the end of the WY of interest
   
   # Outputs: Plot of the "hind casts"
   
@@ -29,6 +28,8 @@ WY_4castPlot <- function(filepath, yr, resname, auiv)
   most = data$Most[1:24]
   min = data$Min[1:n]
   max = data$Max[1:n]
+  auiv = data$Most[length(data$Most)]
+  print(auiv)
   
   # Create Initial Plot Area
   xlim = 24
