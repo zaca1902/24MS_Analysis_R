@@ -58,7 +58,7 @@ WY_4castPlot <- function(filepath, yr, resname)
   points(x[1:n], max, col = "blue", pch = "-", cex = 2.5)
   
   # Add Legend
-  legend("topright", legend = c("Maximum Probable", "Most Probable", 
+  legend("best", legend = c("Maximum Probable", "Most Probable", 
                                 "Minimum Probable", "Actual Value"), 
          col= c("blue","forestgreen","red","black"), 
          lwd = c(NA, 2, NA, 2), 
