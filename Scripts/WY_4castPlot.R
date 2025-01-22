@@ -75,6 +75,6 @@ WY_4castPlot <- function(filepath, yr, resname)
   axis(1, at = seq(xlim, 0, by = -1), labels = monthlab, line = 0.8, tick = FALSE)
   
   # Add Axis Lables (Years on X-Axis)
-  yearlab = c(yr+1, yr)
+  yearlab = c(yr-1, yr)
   axis(1, at = c(21, 9), labels = yearlab, line = 1.6, tick = FALSE)
 }
