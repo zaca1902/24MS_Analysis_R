@@ -23,6 +23,11 @@ histrecplots <- function(newrec_file, oldrec_file)
   oldvals = rbind(old_25, old_med, old_75)
   newvals = rbind(new_25, new_med, new_75)
   
+  oldtot = rbind(old_tot_25, old_tot_med, old_tot_75)
+  newtot = rbind(new_tot_25, new_tot_med, new_tot_75)
+  
+  totvals = rbind(oldtot, newtot)
+  
   # Old Record Bar Chart
   barplot(oldvals, beside = TRUE, names.arg = month.abb, 
           col = NA, ylim = c(0,4),
@@ -50,5 +55,18 @@ histrecplots <- function(newrec_file, oldrec_file)
           legend.text = c("25th %-ile", "Median", "75th %-ile"), add = TRUE)
   
   # Total Comparison Bar Chart
+  compnames = c("Old 25th", "Old Med", "Old 75th", "New 25th", "New Med", 
+                "New 75th")
+  barplot(totvals, beside = TRUE, names.arg = compnames, 
+          col = NA, ylim = c(0,18),
+          main = "Comparison of Records for Total Unregulated Inflow Volume",
+          xlab = "", ylab = "Unregulated Inflow Volume (MAF)")
+  
+  abline(h = 0, col = "black")
+  abline(h = seq(1, 18, by = 1), col = "lightgray")
+  
+  barplot(totvals, beside = TRUE, names.arg = compnames, 
+          col = c("blue", "forestgreen", "red"),
+          legend.text = c("25th %-ile", "Median", "75th %-ile"), add = TRUE)
 
 }
