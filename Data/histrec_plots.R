@@ -4,17 +4,26 @@ histrecplots <- function(newrec_file, oldrec_file)
   new = read.csv(newrec_file, header = TRUE, skip = 2)
   old = read.csv(oldrec_file, header = TRUE, skip = 2)
   
-  # Parse data set
+  # Parse data set and convert to MAF from KAF
   month = new$month
-  new_med = new$Med[2:13]
-  new_25 = new$Min25[2:13]
-  new_75 = new$Max75[2:13]
+  new_med = new$Med[2:13]/1000
+  new_25 = new$Min25[2:13]/1000
+  new_75 = new$Max75[2:13]/1000
   
-  old_med = old$Med[2:13]
-  old_25 = old$Min25[2:13]
-  old_75 = old$Max75[2:13]
+  old_med = old$Med[2:13]/1000
+  old_25 = old$Min25[2:13]/1000
+  old_75 = old$Max75[2:13]/1000
+  
+  # Data binds for plotting commands
+  oldvals = rbind(old_25, old_med, old_75)
+  newvals = rbind(new_25, new_med, new_75)
   
   # Old Record Bar Chart
+  barplot(oldvals, beside = TRUE, names.arg = month, 
+          col = c("blue", "forestgreen", "red"), 
+          legend.text = c("25th %-ile", "Median", "75th %-ile"),
+          main = "1981-2010 Monhtly Unregulated Inflow to Lake Powell",
+          xlab = "", ylab = "Unregulated Inflow Volume (MAF)")
   
   # New Record Bar Chart
   
