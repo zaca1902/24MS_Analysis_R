@@ -31,6 +31,17 @@ histrecplots <- function(newrec_file, oldrec_file)
           legend.text = c("25th %-ile", "Median", "75th %-ile"), add = TRUE)
   
   # New Record Bar Chart
+  barplot(newvals, beside = TRUE, names.arg = month.abb, 
+          col = NA, ylim = c(0,5),
+          main = "1991-2020 Monthly Unregulated Inflow to Lake Powell",
+          xlab = "", ylab = "Unregulated Inflow Volume (MAF)")
+  
+  abline(h = 0, col = "black")
+  abline(h = seq(1, 5, by = 0.5), col = "lightgray")
+  
+  barplot(newvals, beside = TRUE, names.arg = month.abb, 
+          col = c("blue", "forestgreen", "red"),
+          legend.text = c("25th %-ile", "Median", "75th %-ile"), add = TRUE)
   
   # Median Comparison Bar Chart
   
