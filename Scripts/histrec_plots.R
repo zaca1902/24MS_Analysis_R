@@ -19,10 +19,16 @@ histrecplots <- function(newrec_file, oldrec_file)
   
   # Old Record Bar Chart
   barplot(oldvals, beside = TRUE, names.arg = month.abb, 
-          col = c("blue", "forestgreen", "red"), 
-          legend.text = c("25th %-ile", "Median", "75th %-ile"),
-          main = "1981-2010 Monhtly Unregulated Inflow to Lake Powell",
+          col = NA, ylim = c(0,5),
+          main = "1981-2010 Monthly Unregulated Inflow to Lake Powell",
           xlab = "", ylab = "Unregulated Inflow Volume (MAF)")
+  
+  abline(h = 0, col = "black")
+  abline(h = seq(1, 5, by = 0.5), col = "lightgray")
+  
+  barplot(oldvals, beside = TRUE, names.arg = month.abb, 
+          col = c("blue", "forestgreen", "red"),
+          legend.text = c("25th %-ile", "Median", "75th %-ile"), add = TRUE)
   
   # New Record Bar Chart
   
