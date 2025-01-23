@@ -55,18 +55,27 @@ histrecplots <- function(newrec_file, oldrec_file)
           legend.text = c("25th %-ile", "Median", "75th %-ile"), add = TRUE)
   
   # Total Comparison Bar Chart
-  compnames = c("Old 25th", "Old Med", "Old 75th", "New 25th", "New Med", 
-                "New 75th")
-  barplot(totvals, beside = TRUE, names.arg = compnames, 
-          col = NA, ylim = c(0,18),
+  barplot(totvals, beside = TRUE, names.arg = NA, 
+          col = NA, ylim = c(0,18), width = c(0.5,0.5,0.5), 
+          space = c(0.2,0.2,0.2, 1,0.2,0.2),
           main = "Comparison of Records for Total Unregulated Inflow Volume",
           xlab = "", ylab = "Unregulated Inflow Volume (MAF)")
   
   abline(h = 0, col = "black")
   abline(h = seq(1, 18, by = 1), col = "lightgray")
   
-  barplot(totvals, beside = TRUE, names.arg = compnames, 
-          col = c("blue", "forestgreen", "red"),
+  compnames = c(NA, "Old Record", NA, NA, "New Record", NA)
+  barplot(totvals, beside = TRUE, names.arg = compnames,
+          col = c("blue", "forestgreen", "red"), width = c(0.5,0.5,0.5), 
+          space = c(0.2,0.2,0.2, 1,0.2,0.2),
           legend.text = c("25th %-ile", "Median", "75th %-ile"), add = TRUE)
-
+  
+  barpos <- barplot(totvals, beside = TRUE, names.arg = compnames,
+                    col = c("blue", "forestgreen", "red"), 
+                    width = c(0.5,0.5,0.5), 
+                    space = c(0.2,0.2,0.2, 1,0.2,0.2),
+                    legend.text = c("25th %-ile", "Median", "75th %-ile"), 
+                    add = TRUE)
+  
+  text(x = barpos, y = totvals+0.6, labels = totvals, col = "black")
 }
