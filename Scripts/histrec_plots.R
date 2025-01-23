@@ -38,7 +38,7 @@ histrecplots <- function(newrec_file, oldrec_file)
   abline(h = seq(0.5, 4, by = 0.5), col = "lightgray")
   
   barplot(oldvals, beside = TRUE, names.arg = month.abb, 
-          col = c("blue", "forestgreen", "red"),
+          col = c("red", "forestgreen", "blue"),
           legend.text = c("25th %-ile", "Median", "75th %-ile"), add = TRUE)
   
   # New Record Bar Chart
@@ -51,7 +51,7 @@ histrecplots <- function(newrec_file, oldrec_file)
   abline(h = seq(0.5, 4, by = 0.5), col = "lightgray")
   
   barplot(newvals, beside = TRUE, names.arg = month.abb, 
-          col = c("blue", "forestgreen", "red"),
+          col = c("red", "forestgreen", "blue"),
           legend.text = c("25th %-ile", "Median", "75th %-ile"), add = TRUE)
   
   # Total Comparison Bar Chart
@@ -66,12 +66,12 @@ histrecplots <- function(newrec_file, oldrec_file)
   
   compnames = c(NA, "Old Record", NA, NA, "New Record", NA)
   barplot(totvals, beside = TRUE, names.arg = compnames,
-          col = c("blue", "forestgreen", "red"), width = c(0.5,0.5,0.5), 
+          col = c("red", "forestgreen", "blue"), width = c(0.5,0.5,0.5), 
           space = c(0.2,0.2,0.2, 1,0.2,0.2),
           legend.text = c("25th %-ile", "Median", "75th %-ile"), add = TRUE)
   
   barpos <- barplot(totvals, beside = TRUE, names.arg = compnames,
-                    col = c("blue", "forestgreen", "red"), 
+                    col = c("red", "forestgreen", "blue"), 
                     width = c(0.5,0.5,0.5), 
                     space = c(0.2,0.2,0.2, 1,0.2,0.2),
                     legend.text = c("25th %-ile", "Median", "75th %-ile"), 
