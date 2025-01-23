@@ -56,13 +56,13 @@ histrecplots <- function(newrec_file, oldrec_file)
   
   # Total Comparison Bar Chart
   barplot(totvals, beside = TRUE, names.arg = NA, 
-          col = NA, ylim = c(0,18), width = c(0.5,0.5,0.5), 
+          col = NA, ylim = c(0,20), width = c(0.5,0.5,0.5), 
           space = c(0.2,0.2,0.2, 1,0.2,0.2),
           main = "Comparison of Records for Total Unregulated Inflow Volume",
           xlab = "", ylab = "Unregulated Inflow Volume (MAF)")
   
   abline(h = 0, col = "black")
-  abline(h = seq(1, 18, by = 1), col = "lightgray")
+  abline(h = seq(1, 20, by = 1), col = "lightgray")
   
   compnames = c(NA, "Old Record", NA, NA, "New Record", NA)
   barplot(totvals, beside = TRUE, names.arg = compnames,
