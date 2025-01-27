@@ -22,13 +22,16 @@ WY_4castPlot <- function(filepath, yr, resname)
   # Read and Parse data
   data = read.csv(filepath, header = TRUE, skip = 1)
   
-  n = nrow(data)-4    # Creates length for Min/Max to prevent data overlap
+  n = nrow(data)-6    # Creates length for Min/Max to prevent data overlap
   
   x = data$MonthsAway[1:24]
   most = data$Most[1:24]
   min = data$Min[1:n]
   max = data$Max[1:n]
-  auiv = data$Most[length(data$Most)]
+  auiv = data$Most[length(data$Most)-2]
+  
+  auiv1 = data$Most[length(data$Most)-1]
+  auiv2 = data$Most[length(data$Most)] 
 
   # Create Initial Plot Area
   xlim = 24
@@ -49,6 +52,10 @@ WY_4castPlot <- function(filepath, yr, resname)
   
   # Add actual accumulated unregulated inflow volume (maf)
   abline(h = auiv, col = "black", lwd = 2)
+  
+  # Add points for previous 2 WY AUIV (maf)
+  points(24, auiv2)
+  points(24, auiv1)
   
   # Add Most Prob Forecast line
   lines(x, most, lwd = 2, lty = 2, col = "forestgreen")
