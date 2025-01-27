@@ -54,8 +54,8 @@ WY_4castPlot <- function(filepath, yr, resname)
   abline(h = auiv, col = "black", lwd = 2)
   
   # Add points for previous 2 WY AUIV (maf)
-  points(24, auiv2)
-  points(24, auiv1)
+  points(24, auiv2, pch = 16, col = "black", cex = 1.1)
+  points(12, auiv1, pch = 16, col = "black", cex = 1.1)
   
   # Add Most Prob Forecast line
   lines(x, most, lwd = 2, lty = 2, col = "forestgreen")
@@ -66,12 +66,13 @@ WY_4castPlot <- function(filepath, yr, resname)
   
   # Add Legend
   legend("topright", legend = c("Maximum Probable", "Most Probable", 
-                                "Minimum Probable", "Actual Value"), 
-         col= c("blue","forestgreen","red","black"), 
-         lwd = c(NA, 2, NA, 2), 
-         lty = c(NA, 2, NA, 1),
-         pch = c("-", NA, "-", NA), 
-         pt.cex = c(2.5, NA, 2.5, NA)) 
+                                "Minimum Probable", "Actual Value", 
+                                "Prior Water Years"), 
+         col= c("blue","forestgreen","red","black", "black"), 
+         lwd = c(NA, 2, NA, 2, NA), 
+         lty = c(NA, 2, NA, 1, NA),
+         pch = c("-", NA, "-", 16), 
+         pt.cex = c(2.5, NA, 2.5, NA, 2.5), cex = 0.8) 
   
   # Add Axis Labels (Numerical)
   axis(1, at = seq(xlim, 0, by = -1), labels = seq(xlim, 0, by = -1))
