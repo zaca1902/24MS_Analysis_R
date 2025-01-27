@@ -67,12 +67,12 @@ WY_4castPlot <- function(filepath, yr, resname)
   # Add Legend
   legend("topright", legend = c("Maximum Probable", "Most Probable", 
                                 "Minimum Probable", "Actual Value", 
-                                "Prior Water Years"), 
+                                "Prior WY Actual Value"), 
          col= c("blue","forestgreen","red","black", "black"), 
          lwd = c(NA, 2, NA, 2, NA), 
          lty = c(NA, 2, NA, 1, NA),
-         pch = c("-", NA, "-", 16), 
-         pt.cex = c(2.5, NA, 2.5, NA, 2.5), cex = 0.8) 
+         pch = c("-", NA, "-", NA, 16), 
+         pt.cex = c(2.5, NA, 2.5, NA, 1.1), cex = 0.8) 
   
   # Add Axis Labels (Numerical)
   axis(1, at = seq(xlim, 0, by = -1), labels = seq(xlim, 0, by = -1))
