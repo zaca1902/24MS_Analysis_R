@@ -56,8 +56,8 @@ WY_4castPlot <- function(filepath, yr, resname = "Powell", wypt = TRUE)
 
   # Add points for previous 2 WY AUIV (maf) if wypt = TRUE
   if (wypt == TRUE){
-  points(24, auiv2, pch = ".", col = "black", cex = 7)
-  points(12, auiv1, pch = ".", col = "black", cex = 7)}
+  points(24, auiv2, pch = "+", col = "black", cex = 2)
+  points(12, auiv1, pch = "+", col = "black", cex = 2)}
   
   # Add Most Prob Forecast line
   lines(x, most, lwd = 2, lty = 2, col = "forestgreen")
@@ -74,8 +74,8 @@ WY_4castPlot <- function(filepath, yr, resname = "Powell", wypt = TRUE)
          col= c("blue","forestgreen","red","black", "black"), 
          lwd = c(NA, 2, NA, 2, NA), 
          lty = c(NA, 2, NA, 1, NA),
-         pch = c("-", NA, "-", NA, "."), 
-         pt.cex = c(2.5, NA, 2.5, NA, 7), cex = 0.8)}
+         pch = c("-", NA, "-", NA, "+"), 
+         pt.cex = c(2.5, NA, 2.5, NA, 2), cex = 0.8)}
   else{
     legend("topright", legend = c("Maximum Probable", "Most Probable", 
                                   "Minimum Probable", "Actual Value"), 
