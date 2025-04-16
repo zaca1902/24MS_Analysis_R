@@ -1,8 +1,5 @@
 plotcallfor22_23_24 <- function(fp22, fp23, fp24, width = 1200, height = 800, res = 150)
 {
-
-  #Specify Plot Size
-  
   # Plots for WY2022
   png("C:/Users/zachh/OneDrive/CADSWES/24MS_Analysis_R/24MS_Analysis_R/Plot Images/WY2022_PlotCall_NoWYpt.png", width = width, height = height, res = res)
   WY_4castPlot(fp22, 2022, wypt = FALSE)
