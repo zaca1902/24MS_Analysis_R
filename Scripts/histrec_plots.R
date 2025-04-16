@@ -37,9 +37,13 @@ histrecplots <- function(newrec_file, oldrec_file)
   bxp(boxcomp, main = "Comparison of the Historic Records:\n Water Year Total Inflow into Lake Powell",
       ylab = "Unregulated Inflow Volume (MAF)", ylim = c(6,15))
   
-  text(x = 0.7, y = old_tot_25+0.5,   labels = paste("25th %-ile:", old_tot_25),   pos = 4, col = "red")
-  text(x = 0.75, y = old_tot_med+0.5,  labels = paste("Median:", old_tot_med), pos = 4, col = "darkgreen")
-  text(x = 0.7, y = old_tot_75+0.5,   labels = paste("75th %-ile:", old_tot_75),   pos = 4, col = "blue")
+  text(x = 0.71, y = old_tot_25+0.5,   labels = paste("25th %-ile:", old_tot_25),   pos = 4, col = "red")
+  text(x = 0.73, y = old_tot_med+0.5,  labels = paste("Median:", old_tot_med), pos = 4, col = "darkgreen")
+  text(x = 0.69, y = old_tot_75+0.5,   labels = paste("75th %-ile:", old_tot_75),   pos = 4, col = "blue")
+  
+  text(x = 1 + 0.71, y = new_tot_25+0.5,   labels = paste("25th %-ile:", new_tot_25),   pos = 4, col = "red")
+  text(x = 1 + 0.76, y = new_tot_med+0.5,  labels = paste("Median:", new_tot_med), pos = 4, col = "darkgreen")
+  text(x = 1 + 0.69, y = new_tot_75+0.5,   labels = paste("75th %-ile:", new_tot_75),   pos = 4, col = "blue")
   
   # # Old Record Bar Chart
   # barplot(oldvals, beside = TRUE, names.arg = month.abb, 
