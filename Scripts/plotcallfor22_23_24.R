@@ -1,6 +1,5 @@
 plotcallfor22_23_24 <- function(fp22, fp23, fp24)
 {
-  source("WY_4castPlot.R")
 
   # Plots for WY2022
   WY_4castPlot(fp22, 2022, wypt = FALSE)
